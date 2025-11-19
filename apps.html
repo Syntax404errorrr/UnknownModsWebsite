@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UnknownMods - Mod Details</title>
+<title>UnknownMods - Mods</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -21,19 +21,14 @@
   <div class="burger"><div></div><div></div><div></div></div>
 </nav>
 
-<section class="mod-details">
-  <div class="mod-box" id="modDetails">
-    <!-- Dynamic content will appear here -->
-  </div>
-
-  <div class="safety-box">
-    <h3>⚠ Safety Warning</h3>
-    <p>Always download mods from trusted sources. Backup your device before installing any APK. Installing mods from untrusted sources can lead to data loss or malware.</p>
+<section class="mod-list">
+  <h2>Mods Apks</h2>
+  <div class="grid" id="modList">
+    <!-- Mod cards will be populated here via JS -->
   </div>
 </section>
 
 <script>
-// Mods array same as in apps.html
 const apps = [
   {
     id: 'clash-royale',
@@ -47,7 +42,8 @@ const apps = [
       'No Ads',
       'Safe & Secure'
     ],
-    download: 'https://example.com/clash-royale.apk'
+    download: 'https://example.com/clash-royale.apk',
+    category: 'games'
   },
   {
     id: 'free-fire',
@@ -61,7 +57,8 @@ const apps = [
       'No Ads',
       'Safe & Secure'
     ],
-    download: 'https://example.com/free-fire.apk'
+    download: 'https://example.com/free-fire.apk',
+    category: 'games'
   },
   {
     id: 'snapchat-plus',
@@ -75,7 +72,8 @@ const apps = [
       'No Ads',
       'Extra Privacy Options'
     ],
-    download: 'https://example.com/snapchat-plus.apk'
+    download: 'https://example.com/snapchat-plus.apk',
+    category: 'tools'
   },
   {
     id: 'spotify-premium',
@@ -89,32 +87,24 @@ const apps = [
       'Offline Mode',
       'Unlimited Skips'
     ],
-    download: 'https://example.com/spotify-premium.apk'
+    download: 'https://example.com/spotify-premium.apk',
+    category: 'premium apps'
   }
 ];
 
-// Read URL param
-const urlParams = new URLSearchParams(window.location.search);
-const modId = urlParams.get('mod');
-
-const mod = apps.find(m => m.id === modId);
-const modContainer = document.getElementById('modDetails');
-
-if (mod) {
-  modContainer.innerHTML = `
+// Populate mod cards
+const modList = document.getElementById('modList');
+apps.forEach(mod => {
+  const card = document.createElement('div');
+  card.className = 'card mod-card';
+  card.innerHTML = `
     <img src="${mod.img}" alt="${mod.name}">
     <h3>${mod.name}</h3>
-    <p><strong>Version:</strong> ${mod.version}</p>
-    <p><strong>Updated:</strong> ${mod.updated}</p>
-    <h3>Features</h3>
-    <ul>
-      ${mod.features.map(f => `<li>${f}</li>`).join('')}
-    </ul>
-    <a href="${mod.download}" class="download-btn">Download Mod APK</a>
+    <p>Version: ${mod.version}</p>
+    <a href="mod-details.html?mod=${mod.id}" class="download-btn">View Details</a>
   `;
-} else {
-  modContainer.innerHTML = `<p>Mod not found.</p>`;
-}
+  modList.appendChild(card);
+});
 </script>
 <script src="assets/js/main.js"></script>
 </body>
