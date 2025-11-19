@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UnknownMods - Mod Details</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">UnknownMods</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mods.html">Mods</a></li>
+    <li><a href="tutorials.html">Tutorials</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="burger"><div></div><div></div><div></div></div>
+</nav>
+
+<section class="mod-details">
+  <div class="mod-box" id="modDetails">
+    <!-- Dynamic content will appear here -->
+  </div>
+
+  <div class="safety-box">
+    <h3>⚠ Safety Warning</h3>
+    <p>Always download mods from trusted sources. Backup your device before installing any APK. Installing mods from untrusted sources can lead to data loss or malware.</p>
+  </div>
+</section>
+
+<script>
+// Mods array same as in mods.html
+const mods = [
+  {
+    id: 'clash-royale',
+    name: 'Clash Royale Unlimited Gems',
+    img: 'assets/img/mod1.png',
+    version: '3.9.1',
+    updated: 'Nov 2025',
+    features: [
+      'Unlimited Gems & Gold',
+      'Unlocked Cards & Levels',
+      'No Ads',
+      'Safe & Secure'
+    ],
+    download: 'https://example.com/clash-royale.apk'
+  },
+  {
+    id: 'free-fire',
+    name: 'Free Fire Unlimited Diamonds',
+    img: 'assets/img/mod2.png',
+    version: '1.87.2',
+    updated: 'Nov 2025',
+    features: [
+      'Unlimited Diamonds',
+      'Unlocked Skins & Characters',
+      'No Ads',
+      'Safe & Secure'
+    ],
+    download: 'https://example.com/free-fire.apk'
+  },
+  {
+    id: 'snapchat-plus',
+    name: 'Snapchat++',
+    img: 'assets/img/mod3.png',
+    version: '12.3',
+    updated: 'Oct 2025',
+    features: [
+      'Save Snaps',
+      'Custom Themes',
+      'No Ads',
+      'Extra Privacy Options'
+    ],
+    download: 'https://example.com/snapchat-plus.apk'
+  },
+  {
+    id: 'spotify-premium',
+    name: 'Spotify Premium Free',
+    img: 'assets/img/mod1.png',
+    version: '8.8.0',
+    updated: 'Nov 2025',
+    features: [
+      'Ad-free Music',
+      'Premium Features Unlocked',
+      'Offline Mode',
+      'Unlimited Skips'
+    ],
+    download: 'https://example.com/spotify-premium.apk'
+  }
+];
+
+// Read URL param
+const urlParams = new URLSearchParams(window.location.search);
+const modId = urlParams.get('mod');
+
+const mod = mods.find(m => m.id === modId);
+const modContainer = document.getElementById('modDetails');
+
+if (mod) {
+  modContainer.innerHTML = `
+    <img src="${mod.img}" alt="${mod.name}">
+    <h3>${mod.name}</h3>
+    <p><strong>Version:</strong> ${mod.version}</p>
+    <p><strong>Updated:</strong> ${mod.updated}</p>
+    <h3>Features</h3>
+    <ul>
+      ${mod.features.map(f => `<li>${f}</li>`).join('')}
+    </ul>
+    <a href="${mod.download}" class="download-btn">Download Mod APK</a>
+  `;
+} else {
+  modContainer.innerHTML = `<p>Mod not found.</p>`;
+}
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
