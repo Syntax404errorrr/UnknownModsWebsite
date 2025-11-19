@@ -1,6 +1,7 @@
 /* ========================
    RESET & BASE
 ======================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +28,49 @@ body {
 .fade-in.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ========================
+   NAVBAR
+======================== */
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(10,10,10,0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+nav .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #9b5cff;
+  text-shadow: 0 0 20px #9b5cff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li {
+}
+
+nav ul li a {
+  color: #00e5ff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffffffff;
+  text-shadow: 0 0 20px #ffffff, 0 0 40px #aaaaaa;
 }
 
 section.mod-list h2 {
@@ -59,48 +103,6 @@ section.contact h2 {
   text-align: center;
 }
 
-/* ========================
-   NAVBAR
-======================== */
-nav {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background: rgba(10,10,10,0.95);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-}
-
-nav .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #9b5cff;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-nav ul li {
-}
-
-nav ul li a {
-  color: #00fff7;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-nav ul li a:hover {
-  color: #9b5cff;
-  text-shadow: 0 0 10px #9b5cff, 0 0 20px #00fff7;
-}
-
 .burger {
   display: none;
   flex-direction: column;
@@ -111,7 +113,7 @@ nav ul li a:hover {
 .burger div {
   width: 25px;
   height: 3px;
-  background: #00fff7;
+  background: #ffffffff;
   border-radius: 3px;
   transition: 0.3s;
 }
@@ -178,7 +180,7 @@ section {
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 20px #9b5cff, 0 0 40px #00fff7;
+  box-shadow: 0 0 20px #aaaaaa;
 }
 
 .mod-box {
@@ -193,11 +195,11 @@ section {
 
 .mod-box:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 20px #9b5cff, 0 0 40px #00fff7;
+  box-shadow: 0 0 20px #aaaaaa;
 }
 
 .safety-box {
-  margin-top: 50px;
+  margin-top: 90px;
   margin-left: 30px;
   color: #fff;
 }
@@ -224,7 +226,7 @@ section {
 
 .about-box:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 20px #9b5cff, 0 0 40px #00fff7;
+  box-shadow: 0 0 20px #aaaaaa;
 }
 
 /* ========================
@@ -248,8 +250,8 @@ section {
   display: block;
   margin: 20px auto 0 auto;
   padding: 12px 30px;
-  background: #9b5cff;
-  color: #fff;
+  background: #00e5ff;
+  color: #000000;
   border-radius: 10px;
   text-decoration: none;
   text-align: center;
@@ -258,17 +260,15 @@ section {
 }
 
 .download-btn:hover {
-  background: #00fff7;
-  color: #000;
-  box-shadow: 0 0 10px #9b5cff, 0 0 20px #00fff7;
+  box-shadow: 0 0 20px #aaaaaa;
 }
 
 .card button {
   display: block;
   margin: 20px auto 0 auto;
   padding: 12px 30px;
-  background: #9b5cff;
-  color: #fff;
+  background: #00e5ff;
+  color: #000000;
   border-radius: 10px;
   text-align: center;
   transition: 0.3s;
@@ -276,9 +276,7 @@ section {
 }
 
 .card button:hover {
-  background: #00fff7;
-  color: #000;
-  box-shadow: 0 0 10px #9b5cff, 0 0 20px #00fff7;
+  box-shadow: 0 0 20px #aaaaaa;
 }
 
 form button {
@@ -286,7 +284,7 @@ form button {
   margin: 20px auto 0 auto;
   padding: 12px 30px;
   background: #9b5cff;
-  color: #fff;
+  color: #00000;
   border-radius: 10px;
   text-align: center;
   transition: 0.3s;
@@ -294,9 +292,7 @@ form button {
 }
 
 form button:hover {
-  background: #00fff7;
-  color: #000;
-  box-shadow: 0 0 10px #9b5cff, 0 0 20px #00fff7;
+  box-shadow: 0 0 20px #aaaaaa;
 }
 
 /* FORM CONTAINER */
@@ -359,8 +355,8 @@ form button {
   display: block;
   margin: 20px auto 0 auto;
   padding: 12px 30px;
-  background: #9b5cff;
-  color: #fff;
+  background: #00e5ff;
+  color: #000000;
   border-radius: 10px;
   border: none;          /* remove button border */
   text-align: center;
@@ -369,10 +365,8 @@ form button {
   box-shadow: none;      /* remove any shadow */
 }
 
-form button:hover {
-  background: #00fff7;
-  color: #000;
-  box-shadow: 0 0 10px #9b5cff, 0 0 20px #00fff7;
+form button:hover  {
+  box-shadow: 0 0 20px #aaaaaa;
 }
 
 /* ========================
@@ -432,6 +426,34 @@ form input::placeholder {
 
 form textarea::placeholder {
   color: #aaa;
+}
+
+/* ========================
+   FOOTER
+======================== */
+
+footer {
+  text-align: center;
+  backdrop-filter: blur (10px);
+  color: #fff;
+}
+
+footer p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+footer .social-links a {
+  margin: 0 10px;
+  font-size: 25px;
+  color: #00eaff;
+  transition: 0.3s;
+}
+
+footer .social-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 20px #aaaaaa;
 }
 
 /* ========================
