@@ -9,7 +9,7 @@
 <body>
 
 <nav>
-  <div class="logo">UnknownMods</div>
+  <div class="logo"></div>
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="apps.html">Apps</a></li>
@@ -22,77 +22,41 @@
 </nav>
 
 <section class="mod-list">
-  <h2>Mods Apks</h2>
+  <h2>Mods APKs</h2>
   <div class="grid" id="modList">
-    <!-- Mod cards will be populated here via JS -->
+    <!-- Grid cards will be populated by JavaScript -->
   </div>
 </section>
 
 <script>
 const apps = [
   {
-    id: 'clash-royale',
     name: 'Clash Royale Unlimited Gems',
-    img: 'assets/img/mod1.png',
+    img: 'assets/img/mod1.png',  // Added back for grid view
     version: '3.9.1',
-    updated: 'Nov 2025',
-    features: [
-      'Unlimited Gems & Gold',
-      'Unlocked Cards & Levels',
-      'No Ads',
-      'Safe & Secure'
-    ],
-    download: 'https://example.com/clash-royale.apk',
-    category: 'games'
+    download: 'https://example.com/clash-royale.apk'
   },
   {
-    id: 'free-fire',
     name: 'Free Fire Unlimited Diamonds',
     img: 'assets/img/mod2.png',
     version: '1.87.2',
-    updated: 'Nov 2025',
-    features: [
-      'Unlimited Diamonds',
-      'Unlocked Skins & Characters',
-      'No Ads',
-      'Safe & Secure'
-    ],
-    download: 'https://example.com/free-fire.apk',
-    category: 'games'
+    download: 'https://example.com/free-fire.apk'
   },
   {
-    id: 'snapchat-plus',
     name: 'Snapchat++',
-    img: 'assets/img/Snapchat.png',
+    img: 'assets/img/snapchat.png',
     version: '12.3',
-    updated: 'Oct 2025',
-    features: [
-      '◉ Extra Privacy Options',
-      '◉ Custom Themes',
-      '◉ No Ads',
-      '◉ Save Snaps',
-    ],
-    download: 'https://example.com/snapchat-plus.apk',
-    category: 'tools'
+    download: 'https://example.com/snapchat-plus.apk'
   },
   {
-    id: 'spotify-premium',
     name: 'Spotify Premium Free',
     img: 'assets/img/mod1.png',
     version: '8.8.0',
-    updated: 'Nov 2025',
-    features: [
-      'Ad-free Music',
-      'Premium Features Unlocked',
-      'Offline Mode',
-      'Unlimited Skips'
-    ],
-    download: 'https://example.com/spotify-premium.apk',
-    category: 'premium apps'
+    download: 'https://example.com/spotify-premium.apk'
   }
 ];
 
-// Populate mod cards
+// Populate grid cards
 const modList = document.getElementById('modList');
 apps.forEach(mod => {
   const card = document.createElement('div');
@@ -101,7 +65,7 @@ apps.forEach(mod => {
     <img src="${mod.img}" alt="${mod.name}">
     <h3>${mod.name}</h3>
     <p>Version: ${mod.version}</p>
-    <a href="mod-details.html?mod=${mod.id}" class="download-btn">View Details</a>
+    <a href="${mod.download}" class="download-btn" target="_blank">Download</a>
   `;
   modList.appendChild(card);
 });
@@ -109,4 +73,3 @@ apps.forEach(mod => {
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-
