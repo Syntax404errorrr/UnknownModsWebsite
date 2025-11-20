@@ -73,6 +73,7 @@ nav ul li a:hover {
 }
 
 .burger {
+  right: 20px;
   display: none;
   flex-direction: column;
   cursor: pointer;
@@ -85,6 +86,10 @@ nav ul li a:hover {
   background: #ffffffff;
   border-radius: 3px;
   transition: 0.3s;
+}
+
+.burger {
+  display: flex;
 }
 
 /* ========================
@@ -418,10 +423,6 @@ footer .social-icons a:hover {
   }
 
   nav ul.active {
-    display: flex;
-  }
-
-  .burger {
     display: flex;
   }
 }
