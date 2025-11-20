@@ -73,7 +73,6 @@ nav ul li a:hover {
 }
 
 .burger {
-  margin-left: 90px;
   display: none;
   flex-direction: column;
   cursor: pointer;
