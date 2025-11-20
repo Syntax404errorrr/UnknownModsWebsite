@@ -193,35 +193,23 @@ section.contact h2 {
   margin-bottom: 15px;  
 }
 
-.mod-box {
-  background: rgba(20,20,20,0.4);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 15px;
-  padding: 30px;
-  transition: 0.3s;
-  color: #fff;
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; 
 }
 
-.mod-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px #aaaaaa;
-}
-
-.safety-box {
-  margin-top: 90px;
-  color: #fff;
-  text-align: center;
-}
-
-.safety-box h3 {
-  margin-bottom: 10px;
-  color: #ff4d4d; /* warning red */
-}
-
-.safety-box p {
-  line-height: 1.5;
-  color: #ccc;
+#search {
+  width: 100%;
+  max-width: 400px; 
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .about-box {
@@ -237,31 +225,6 @@ section.contact h2 {
 .about-box:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 20px #aaaaaa;
-}
-
-/* ========================
-   MOD DETAILS
-======================== */
-.mod-details img {
-  width: 30%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.mod-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* centers child elements horizontally */
-  text-align: center;    /* centers text inside children */
-  gap: 20px;             /* optional spacing between items */
-  margin: 0 auto;        /* center container itself */
-}
-
-.mod-details p,
-.mod-details ul {
-  text-align: center;
-  padding-left: 0;
-  list-style: none;
 }
 
 /* ========================

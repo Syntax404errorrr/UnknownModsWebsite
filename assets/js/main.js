@@ -29,23 +29,21 @@ faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
 
-// Search Filter for Mods Page
-function filterMods() {
-  const search = document.getElementById('modSearch').value.toLowerCase();
-  const category = document.getElementById('modCategory').value.toLowerCase();
-  const cards = document.querySelectorAll('.mod-card');
-  
-  cards.forEach(card => {
-    const title = card.querySelector('h3').innerText.toLowerCase();
-    const cat = card.dataset.category.toLowerCase();
-    
-    if(title.includes(search) && (category === 'all' || cat === category)){
-      card.style.display = 'block';
+// Add search functionality
+const searchInput = document.getElementById('search');
+const modCards = document.querySelectorAll('.mod-card'); // Select all mod cards
+
+searchInput.addEventListener('input', function() {
+  const query = this.value.toLowerCase(); // Get search query in lowercase
+  modCards.forEach(card => {
+    const appName = card.querySelector('h3').textContent.toLowerCase(); // Get app name in lowercase
+    if (appName.includes(query)) {
+      card.style.display = 'block'; // Show if matches
     } else {
-      card.style.display = 'none';
+      card.style.display = 'none'; // Hide if doesn't match
     }
   });
-}
+});
 
 // Contact Form Validation
 function validateForm(e){
