@@ -5,7 +5,7 @@ const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('nav ul');
 
 burger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+  navLinks.classList.toggle('not active');
 });
 
 

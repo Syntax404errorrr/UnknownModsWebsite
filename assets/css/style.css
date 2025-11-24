@@ -82,13 +82,16 @@ nav ul li a:hover {
 .burger div {
   width: 25px;
   height: 3px;
-  background: #ffffffff;
+  background: #ffffff;
   border-radius: 3px;
   transition: 0.3s;
 }
 
-.burger {
-  display: flex;
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
 }
 
 /* ========================
