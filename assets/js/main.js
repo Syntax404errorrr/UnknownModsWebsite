@@ -19,7 +19,7 @@ const appearOptions = {
   rootMargin: "0px 0px -100px 0px"
 };
 
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
   entries.forEach(entry => {
     if (!entry.isIntersecting) {
       return;
@@ -115,68 +115,9 @@ function showAlert(msg, type) {
 // =============================
 // Particle Background Animation
 // =============================
-const canvas = document.createElement('canvas');
-canvas.classList.add('particles');
-document.body.appendChild(canvas);
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const particles = Array.from({ length: 120 }, () => ({
-  x: Math.random() * canvas.width,
-  y: Math.random() * canvas.height,
-  vx: (Math.random() - 0.5) * 0.7,
-  vy: (Math.random() - 0.5) * 0.7,
-  radius: Math.random() * 1.5 + 0.5
-}));
-
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (let p of particles) {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "#00c6ff";
-    ctx.fill();
-  }
-
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < 120) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = "rgba(0,198,255,0.1)";
-        ctx.stroke();
-      }
-    }
-  }
-}
-
-function update() {
-  for (let p of particles) {
-    p.x += p.vx;
-    p.y += p.vy;
-
-    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-  }
-}
-
-function animate() {
-  draw();
-  update();
-  requestAnimationFrame(animate);
-}
-
-animate();
+const canvas = document.getElementById('bgCanvas'); const ctx = canvas.getContext('2d'); let particles = []; const PARTICLE_COUNT = 80; function resizeCanvas() {canvas.width = window.innerWidth; canvas.height = window.innerHeight; } window.addEventListener('resize', resizeCanvas); resizeCanvas(); class Particle {constructor() {this.reset(); } reset() {this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.vx = (Math.random() - 0.5) * 0.8; this.vy = (Math.random() - 0.5) * 0.8; this.size = Math.random() * 3 + 1; } update() {this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset(); } draw() {ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); } } for (let i = 0; i < PARTICLE_COUNT; i++) {particles.push(new Particle()); } function animate() {ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => {p.update(); p.draw(); }); requestAnimationFrame(animate); } animate();
 
 window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
+    canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
